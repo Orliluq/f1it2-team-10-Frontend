@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Provider, useSelector } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import store from './redux/store';
+import Detalle from './components/Detalle/detalle';
+import About from './pages/About/about';
+import Menu from './components/Menu/menu';
+import CrearCita from './pages/CrearCita/crearCita';
+import BuscarCitas from './components/BuscarCitas/buscarCitas';
+import ActualizarCita from './pages/ActualizarCita/actualizarCita';
+import Home from './components/Home';
 
 function App() {
+
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(true);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="app">
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/crearCita" element={<CrearCita />} />
+          <Route path="/detalle" element={<Detalle />} />
+          <Route path="/actualizarCita" element={<ActualizarCita />} />
+          <Route path="/buscarCitas" element={<BuscarCitas />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 
 export default App;
+

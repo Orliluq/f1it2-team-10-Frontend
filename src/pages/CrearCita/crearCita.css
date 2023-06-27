@@ -1,0 +1,88 @@
+.background-cita {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  width: 505px;
+  flex-direction: column;
+  height: 1505px;
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 9;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.crearCita {
+  width: 450px;
+  margin: 505px auto;
+  padding: 10rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  gap: 0.5em;
+  height: 50px;
+  max-height: 100vh;
+  min-height: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.name,
+.encabezado {
+  display: flex;
+  justify-content: center;
+  line-height: 0.1;
+  margin-top: 250px; 
+  width: 400px;
+}
+
+.input,
+textarea {
+  width: 90%;
+  padding: 0.5px;
+  margin-bottom: 0.3px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button {
+  margin: 4px;
+  width: 40%;
+  border-radius: 0.5rem;
+  padding: 4px;
+  background-color: hsl(239, 56%, 70%);
+  box-shadow: 0 8px 16px 0 rgba(110, 165, 228, 0.918), 0 6px 20px 0 rgba(0,0,0,0.19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid hsl(0, 0%, 80%);
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(100%);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button:not(.hidden) {
+  display: flex;
+  transform: translateX(0%);
+}
+
+.button:hover {
+  background-color: #cdd7e2da;
+  color: #fff;
+  border-color: rgb(176, 176, 211);
+  box-shadow: 0 5px 5px 0 rgba(170, 178, 223, 0.897), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button-clicked {
+  margin: 4px;
+  width: 40%;
+  border-radius: 0.5rem;
+  padding: 4px;
+  background-color: hsl(239, 56%, 70%);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  box-shadow: 0 8px 16px 0 rgba(110, 165, 228, 0.918), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Citasync</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router-dom@5/umd/react-router-dom.min.js" crossorigin></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState } = React;
+      const { BrowserRouter, Route, Link, useNavigate } = ReactRouterDOM;
+      
+      function Home() {
+        const navigate = useNavigate();
+
+        const handleClick = () => {
+          navigate('/menu');
+        };
+
+        return (
+          <div className="app">
+            <div className="home-form">
+              <div align="center">
+                <h1>Bienvenido a nuestra aplicación</h1>
+              </div>
+              <div className="button-container">
+                <button
+                  type="button"
+                  className="button-clicked"
+                  onClick={handleClick}
+                >
+                  Acceder a la app
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.render(
+        <BrowserRouter>
+          <Route exact path="/" component={Home} />
+        </BrowserRouter>,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>

@@ -5,9 +5,94 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: var(--colorSection);
+  font-family: var(--fontFamily);
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --colorSection: #fff;
+  --colorText: #444655;
+  --colorPrimary: #dd4962;
+  --colorSecundary: #4a7ae5;
+  --coloBackground: #a8aabc;
+  --fontFamily: "Goudy Bookletter 1911", serif;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--colorText);
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  outline: none;
+}
+
+.container {
+  padding-right: 6%;
+  padding-left: 6%;
+}
+
+label {
+  display: block;
+  margin: 1px;
+  padding: 1px;
+}
+
+.field {
+  margin: 1px;
+  padding: 1px;
+}
+
+input:invalid {
+  background-color: #ffdddd;
+}
+
+form:invalid {
+  border: 5px solid #ffdddd;
+}
+
+input:valid {
+  background-color: #ddffdd;
+}
+
+form:valid {
+  border: 5px solid #ddffdd;
+}
+form:valid:focus {
+  border: 5px solid var(--colorPrimary);
+}
+
+form:invalid:focus {
+  border: 5px solid var(--colorSecundary);
+}
+
+input:required {
+  border-color: var(--colorPrimary);
+  border-width: 3px;
+}
+
+input:required:invalid {
+  border-color: var(--colorSecundary);
+}
+
+
+
