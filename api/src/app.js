@@ -1,16 +1,7 @@
-const express = require('express');
-const server = express();
-const router = require('./routes/index');
+import api from './api';
 
-server.use(express.json());
-
-server.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
-});
-
-server.use('/', router);
-
-module.exports = server;
+export const getCitas = () => api.get('/citas');
+export const crearCita = (cita) => api.post('/citas', cita);
+export const actualizarCita = (id, cita) => api.put(`/citas/${id}`, cita);
+export const recuperarCita = (id) => api.get(`/citas/${id}`);
+export const deleteCita = (id) => api.delete(`/citas/${id}`);

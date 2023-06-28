@@ -1,14 +1,14 @@
 # Using node:16-alpine base image
-FROM node:16-alpine 
+FROM node:18-alpine 
 
 # Set /app as the default work directory
 WORKDIR /app
 
 # copy package.json to the working directory for packages installation
-COPY package.json /app
+COPY package.json /
 
 # Install npm dependencies
-RUN yarn install
+RUN npm install
 
 # Copy all the project files to the working directory
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # run your app
-CMD ['yarn', 'run', 'start']
+CMD ['npm', 'start']

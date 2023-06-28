@@ -9,8 +9,6 @@ function useIsActive(pathname) {
 }
 
 function Menu() {
-  const [access, setAccess] = useState(false);
-  const [animationActive, setAnimationActive] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,57 +21,59 @@ function Menu() {
   };
 
   const handleAnimate = () => {
-    setAnimationActive((prev) => !prev);
-    dispatch({ type: 'SET_ANIMATION_ACTIVE', 
-      payload: !animationActive });
+    dispatch({ type: 'SET_ANIMATION_ACTIVE' });
   };
-
+  
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+
   const handleHamburgerClick = () => {
     setIsNavExpanded((prev) => !prev);
   };
 
   useEffect(() => {
-    const handleClick = () => {
-      const navigationItems = document.querySelector('.navigation__items');
-      if (navigationItems) {
-        navigationItems.classList.toggle('visible');
+    const handleClickOutside = (event) => {
+      if (isNavExpanded) {
+        const navigationItems = document.querySelector('.navigation__items');
+        if (navigationItems && !navigationItems.contains(event.target)) {
+          setIsNavExpanded(false);
+        }
       }
     };
 
-    const hamburger = document.querySelector('.hamburger');
-    if (hamburger) {
-      hamburger.addEventListener('click', handleClick);
-      return () => {
-        hamburger.removeEventListener('click', handleClick);
-      };
-    }
-  }, []);
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isNavExpanded]);
+
 
   return (
     <>
       <nav>
         <Link to="/menu" />
         <div align="center">
-        <div className="background">
-          <div className="hamburger" onClick={handleHamburgerClick}>
-            <p>MENU</p>
+          <div className="background-menu">
+            <div className="hamburger" onClick={handleHamburgerClick}>
+              <p>MENU</p>
+            </div>
           </div>
-        </div>
-          <div align="center" className={`navigation__items ${isNavExpanded ? 'visible' : ''}`}>
+          <div
+            align="center"
+            className={`navigation__items ${isNavExpanded ? 'visible' : ''}`}
+          >
             <Link to="/crearCita">
               <button onClick={handleAddClick} className={useIsActive('/crearCita')}>
                 CREAR CITA
               </button>
             </Link>
             <Link to="/detalle">
-              <button className={useIsActive('/detalle')}>DETALLE CITA</button>
+              <button onClick={handleAnimate} className={useIsActive('/detalle')}>DETALLE CITA</button>
             </Link>
             <Link to="/buscarCitas">
-              <button className={useIsActive('/buscarCitas')}>BUSCAR CITAS</button>
+              <button onClick={handleAnimate} className={useIsActive('/buscarCitas')}>BUSCAR CITAS</button>
             </Link>
             <Link to="/about">
-              <button className={useIsActive('/about')}>ABOUT</button>
+              <button onClick={handleAnimate} className={useIsActive('/about')}>ABOUT</button>
             </Link>
             <div>
               <button onClick={handleExitClick} className={useIsActive('/exit')}>

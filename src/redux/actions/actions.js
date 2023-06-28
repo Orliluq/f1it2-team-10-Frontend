@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CREAR_CITA, ACTUALIZAR_CITA, ELIMINAR_CITA, BUSCAR_CITAS, RECUPERAR_CITA } from "./action-types";
+import { CREAR_CITA, ACTUALIZAR_CITA, ELIMINAR_CITA, GET_CITAS, RECUPERAR_CITA } from "./action-types";
 
 export const crearCita = (cita) => {
   return { type: CREAR_CITA, payload: cita };
@@ -13,21 +13,21 @@ export const eliminarCita = (id) => {
   return { type: ELIMINAR_CITA, payload: id };
 };
 
-export const buscarCitas = (terminoBusqueda) => {
+export const getCitas = (terminoBusqueda) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`https://citasync.onrender.com/citas?q=${terminoBusqueda}`);
-      dispatch({ type: BUSCAR_CITAS, payload: response.data });
+      const response = await axios.get(`/citas?q=${terminoBusqueda}`);
+      dispatch({ type: GET_CITAS, payload: response.data });
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const recuperarCita = () => {
+export const recuperarCita = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get("https://citasync.onrender.com/citas");
+      const response = await axios.get(`/citas/${id}`);
       dispatch({ type: RECUPERAR_CITA, payload: response.data });
     } catch (error) {
       console.log(error);

@@ -1,6 +1,12 @@
-const server = require('./app');
+const express = require('express');
+const app = express();
+const router = require('./router');
+
+app.use(express.json());
+app.use(router);
+
 const PORT = 3001;
 
-server.listen(PORT, () => {
-  console.log(`Server raised in port: ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
 });

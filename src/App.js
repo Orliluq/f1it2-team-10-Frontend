@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import { Provider, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import store from './redux/store';
 import Detalle from './components/Detalle/detalle';
 import About from './pages/About/about';
@@ -12,10 +12,6 @@ import ActualizarCita from './pages/ActualizarCita/actualizarCita';
 import Home from './components/Home';
 
 function App() {
-
-  const navigate = useNavigate();
-  const [access, setAccess] = useState(true);
-  
   return (
     <Provider store={store}>
       <div className="app">
@@ -31,7 +27,6 @@ function App() {
       </div>
     </Provider>
   );
-}
+};
 
 export default App;
-

@@ -1,14 +1,16 @@
-const axios = require('axios');
+import api from './api';
 
-const getCitaById = async (req, res) => {
+const getCitasById = async (req, res) => {
   try {
     const { id } = req.params;
-    const { data } = await axios.get(`${URL}/${id}`);
+    const data = await api.get(`/citas/${id}`);
 
-    if (!data.cita) throw Error(`Faltan datos del ID: ${id}`);
+    if (!data.cita) {
+      throw Error(`Faltan datos del ID: ${id}`);
+    }
 
     if (data.error) {
-      res.status(404).json({ message: "Not found" });
+      res.status(404).json({ message: "No encontrado" });
     } else {
       const cita = {
         id: data.id,
@@ -21,13 +23,11 @@ const getCitaById = async (req, res) => {
         estado: data.estado,
       };
 
-      res.json(cita);
+      res.json(201, cita);
     }
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(400).json({ message: err.message });
   }
 };
 
-module.exports = {
-  getCitaById,
-};
+export default getCitasById;

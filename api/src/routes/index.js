@@ -1,12 +1,10 @@
-const { getCitaById } = require('../controllers/getCitaById');
+const express = require('express');
+const router = express.Router();
+const { getCitasById } = require('../controllers/getCitasById');
 const { postCita, deleteCita } = require('../controllers/handleCita');
 
-const router = require('express').Router();
-
-router.get('/cita/:id', getCitaById);
-
+router.get('/cita/:id', getCitasById);
 router.post('/cita', postCita);
-
 router.delete('/cita/:id', deleteCita);
 
 module.exports = router;

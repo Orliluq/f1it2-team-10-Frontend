@@ -40,10 +40,11 @@
 
 
 .button-clicked {
-  margin: 4px;
-  width: 40%;
+  margin: 5px auto;
+  width: 50%;
+  display: block;
   border-radius: 0.5rem;
-  padding: 4px;
+  padding: 0.4px;
   background-color: hsl(239, 56%, 70%);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   box-shadow: 0 8px 16px 0 rgba(110, 165, 228, 0.918), 0 6px 20px 0 rgba(0,0,0,0.19);

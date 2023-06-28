@@ -19,9 +19,9 @@ code {
 }
 
 :root {
-  --colorSection: #fff;
+  --colorSection: #ffffff;
   --colorText: #444655;
-  --colorPrimary: #dd4962;
+  --colorPrimary: #f0e2e5;
   --colorSecundary: #4a7ae5;
   --coloBackground: #a8aabc;
   --fontFamily: "Goudy Bookletter 1911", serif;
@@ -39,6 +39,7 @@ a {
 }
 
 input {
+  width: 100%;
   outline: none;
 }
 
@@ -52,7 +53,7 @@ textarea {
 }
 
 label {
-  display: block;
+  display: flex;
   margin: 1px;
   padding: 1px;
 }
@@ -66,9 +67,9 @@ input:invalid {
   background-color: #ffdddd;
 }
 
-form:invalid {
-  border: 5px solid #ffdddd;
-}
+/* form:invalid {
+  border: 2px solid #ffdddd;
+} */
 
 input:valid {
   background-color: #ddffdd;
@@ -87,7 +88,7 @@ form:invalid:focus {
 
 input:required {
   border-color: var(--colorPrimary);
-  border-width: 3px;
+  border-width: 2px;
 }
 
 input:required:invalid {

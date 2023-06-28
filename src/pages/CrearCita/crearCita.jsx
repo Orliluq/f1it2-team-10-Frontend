@@ -54,7 +54,7 @@ const CrearCita = () => {
     }
   };
 
-  const handleAddClick = () => {
+  const handleSaveClick = () => {
     navigate('/detalle');
   };
 
@@ -71,7 +71,7 @@ const CrearCita = () => {
           <h1>CitaSync</h1>
         </div>
         <div className="encabezado">
-          <h2>Añadir cita</h2>
+          <h2>Crear cita</h2>
         </div>
         <div className="input-container">
           <label htmlFor="id">Id:</label>
@@ -150,7 +150,7 @@ const CrearCita = () => {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="nombre">Estado:</label>
+          <label htmlFor="estado">Estado:</label>
           <input
             type="text"
             id="estado"
@@ -161,7 +161,7 @@ const CrearCita = () => {
           />
         </div>
         <div className="button-container">
-          <button type="submit" className="button-clicked">
+          <button type="submit" className="button-clicked" onClick={handleSaveClick}>
             Guardar Cita
           </button>
         </div>
