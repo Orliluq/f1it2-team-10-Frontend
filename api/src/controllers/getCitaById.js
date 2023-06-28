@@ -1,6 +1,6 @@
 import api from './api';
 
-const buscarCitasById = async (req, res) => {
+const getCitasById = async (req, res) => {
   try {
     const { id } = req.params;
     const data = await api.get(`/citas/${id}`);
@@ -30,4 +30,4 @@ const buscarCitasById = async (req, res) => {
   }
 };
 
-export default buscarCitasById;
+export default getCitasById;
